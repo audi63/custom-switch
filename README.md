@@ -1,3 +1,4 @@
+![Logo](assets/images/repository-open-graph-template-wp-custom-switch.png)
 # WP Custom Switch
 
 **Contributors:** johancoffigniez  
