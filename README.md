@@ -81,20 +81,20 @@ C'est tout !
 
 ## Arborescence
 
-
-
-wp-custom-switch/
-|-- assets/
-|   |-- css/
-|   |   |-- custom-button-style.css
-|   |-- js/
-|       |-- custom-button-script.js
-|   |-- images/
-|       |-- default/
-|           |-- button-on.svg
-|           |-- button-off.svg
-|-- includes/
-|   |-- class-wp-custom-switch.php
-|   |-- admin/
-|       |-- class-wp-custom-switch-admin.php
-|-- wp-custom-switch.php
+ ```plaintext
+    wp-custom-switch/
+    ├── actifs/
+    │   ├── css/
+    │   │   └── custom-button-style.css
+    │   ├── js/
+    │   │   └── custom-button-script.js
+    │   └── images/
+    │       └── par défaut/
+    │           ├── bouton-on.svg
+    │           └── bouton-off.svg
+    ├── inclut/
+    │   ├── class-wp-custom-switch.php
+    │   └── admin/
+    │       └── classe-wp-custom-switch-admin.php
+    └── wp-custom-switch.php
+    ```
