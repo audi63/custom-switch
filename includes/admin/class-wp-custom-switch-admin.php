@@ -2,6 +2,12 @@
 
 class WP_Custom_Switch_Admin {
 
+    /**
+     * Constructor for the WP_Custom_Switch_Admin class.
+     *
+     * Initializes the class by registering hooks for the admin menu,
+     * enqueueing admin assets, and handling admin post actions.
+     */
     public function __construct() {
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
@@ -9,6 +15,11 @@ class WP_Custom_Switch_Admin {
         add_action('admin_post_delete_custom_switch', array($this, 'delete_custom_switch'));
     }
 
+    /**
+     * Adds a menu page for managing custom switch shortcodes.
+     *
+     * @return void
+     */
     public function admin_menu() {
         add_menu_page(
             __('Custom Switch', 'wp-custom-switch'),
@@ -20,6 +31,12 @@ class WP_Custom_Switch_Admin {
         );
     }
 
+    /**
+     * Enqueues admin-specific styles and scripts for the custom switch page.
+     *
+     * @param string $hook The current admin page hook.
+     * @return void
+     */
     public function enqueue_admin_assets($hook) {
         if ($hook !== 'toplevel_page_custom-switch') {
             return;
@@ -28,6 +45,11 @@ class WP_Custom_Switch_Admin {
         wp_enqueue_style('custom-switch-admin-style', WP_CUSTOM_SWITCH_PLUGIN_URL . 'assets/css/custom-button-style.css');
     }
 
+    /**
+     * Renders the admin page for managing custom switch shortcodes.
+     *
+     * @return void
+     */
     public function admin_page() {
         if (!current_user_can('manage_options')) {
             wp_die(__('Permission denied', 'wp-custom-switch'));
@@ -160,6 +182,11 @@ class WP_Custom_Switch_Admin {
         <?php
     }
 
+    /**
+     * Handles the saving of a custom switch shortcode.
+     *
+     * @return void
+     */
     public function save_custom_switch() {
         if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'save_custom_switch_nonce')) {
             wp_die(__('Nonce verification failed', 'wp-custom-switch'));
@@ -193,6 +220,11 @@ class WP_Custom_Switch_Admin {
         exit;
     }
 
+    /**
+     * Handles the deletion of a custom switch shortcode.
+     *
+     * @return void
+     */
     public function delete_custom_switch() {
         if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'delete_custom_switch_nonce')) {
             wp_die(__('Nonce verification failed', 'wp-custom-switch'));

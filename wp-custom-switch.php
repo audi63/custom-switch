@@ -17,7 +17,12 @@ define('WP_CUSTOM_SWITCH_PLUGIN_DIR', plugin_dir_path(__FILE__));
 require_once WP_CUSTOM_SWITCH_PLUGIN_DIR . 'includes/class-wp-custom-switch.php';
 require_once WP_CUSTOM_SWITCH_PLUGIN_DIR . 'includes/admin/class-wp-custom-switch-admin.php';
 
-// Initialiser les classes
+/**
+ * Initialiser les classes
+ *
+ * @return [type]
+ * 
+ */
 function wp_custom_switch_init() {
     new WP_Custom_Switch();
 }
@@ -31,13 +36,25 @@ function wp_custom_switch_admin_init() {
 }
 add_action('admin_init', 'wp_custom_switch_admin_init');
 
-// Activer le plugin
+
+/**
+ * Activer le plugin
+ *
+ * @return [type]
+ * 
+ */
 function wp_custom_switch_activate() {
     // Code à exécuter lors de l'activation
 }
 register_activation_hook(__FILE__, 'wp_custom_switch_activate');
 
-// Désactiver le plugin
+ 
+/**
+ * Désactiver le plugin
+ *
+ * @return [type]
+ * 
+ */
 function wp_custom_switch_deactivate() {
     // Code à exécuter lors de la désactivation
 }

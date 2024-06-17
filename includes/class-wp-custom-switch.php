@@ -2,6 +2,12 @@
 
 class WP_Custom_Switch {
 
+    /**
+     * Constructor for the WP_Custom_Switch class.
+     *
+     * Initializes the class by registering hooks for enqueueing assets,
+     * rendering the shortcode, and handling AJAX requests to toggle the button state.
+     */
     public function __construct() {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
         add_shortcode('custom_switch', array($this, 'render_switch'));
@@ -9,6 +15,11 @@ class WP_Custom_Switch {
         add_action('wp_ajax_nopriv_toggle_button_state', array($this, 'toggle_button_state'));
     }
 
+    /**
+     * Enqueues the necessary styles and scripts for the custom switch.
+     *
+     * @return void
+     */
     public function enqueue_assets() {
         wp_enqueue_style('custom-button-style', WP_CUSTOM_SWITCH_PLUGIN_URL . 'assets/css/custom-button-style.css');
         wp_enqueue_script('custom-button-script', WP_CUSTOM_SWITCH_PLUGIN_URL . 'assets/js/custom-button-script.js', array('jquery'), null, true);
@@ -33,6 +44,12 @@ class WP_Custom_Switch {
         wp_localize_script('custom-button-script', 'custom_switch_data', $localized_data);
     }
 
+    /**
+     * Renders the custom switch shortcode.
+     *
+     * @param array $atts The shortcode attributes.
+     * @return string The rendered HTML for the custom switch.
+     */
     public function render_switch($atts) {
         $atts = shortcode_atts(array(
             'id' => '',
@@ -70,6 +87,11 @@ class WP_Custom_Switch {
         return ob_get_clean();
     }
 
+    /**
+     * Handles the AJAX request to toggle the button state.
+     *
+     * @return void
+     */
     public function toggle_button_state() {
         if (!current_user_can('manage_options')) {
             wp_send_json_error('You do not have sufficient permissions to perform this action.');
