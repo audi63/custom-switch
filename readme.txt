@@ -44,12 +44,13 @@ Example [custom_switch id="5" label-on="ON" label-off="OFF" button-on="wp-conten
 
 
 == Changelog ==
-= 1.0.0 = 17 jun 2024
+= 1.0.1 = 17 jun 2024
 * happy Father's Day for yesterday ;)
 * Add security for change only by admin
 * Code reorganisation
 
-
+= 1.0.1 = 17 jun 2024
+* Correction mineure - Ajout du nom de l'auteur
 
 = 1.0.0 = 17 jun 2024
 * initial version
