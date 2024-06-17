@@ -54,25 +54,13 @@ C'est tout !
 4. Edit and delete shortcode
 5. Other screenshots
 
-
-<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; text-align: center;">
-  <a href="./screenshots/1.png" style="display: inline-block; margin: 5px;">
-    <img src="./screenshots/1.png" alt="Screenshot 1" width="100" height="100"/>
-  </a>
-  <a href="./screenshots/2.png" style="display: inline-block; margin: 5px;">
-    <img src="./screenshots/2.png" alt="Screenshot 2" width="100" height="100"/>
-  </a>
-  <a href="./screenshots/3.png" style="display: inline-block; margin: 5px;">
-    <img src="./screenshots/3.png" alt="Screenshot 3" width="100" height="100"/>
-  </a>
-  <a href="./screenshots/4.png" style="display: inline-block; margin: 5px;">
-    <img src="./screenshots/4.png" alt="Screenshot 4" width="100" height="100"/>
-  </a>
-  <a href="./screenshots/5.png" style="display: inline-block; margin: 5px;">
-    <img src="./screenshots/5.png" alt="Screenshot 5" width="100" height="100"/>
-  </a>
+<div>
+  <img src="./screenshots/1.png" alt="Screenshot 1" width="100" height="100" style="margin: 5px;"/>
+  <img src="./screenshots/2.png" alt="Screenshot 2" width="100" height="100" style="margin: 5px;"/>
+  <img src="./screenshots/3.png" alt="Screenshot 3" width="100" height="100" style="margin: 5px;"/>
+  <img src="./screenshots/4.png" alt="Screenshot 4" width="100" height="100" style="margin: 5px;"/>
+  <img src="./screenshots/5.png" alt="Screenshot 5" width="100" height="100" style="margin: 5px;"/>
 </div>
-
 
 ---
 
