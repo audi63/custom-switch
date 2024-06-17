@@ -16,30 +16,26 @@ jQuery(document).ready(function($) {
         var initialState = ajaxObject.initial_state;
         toggleButtons(initialState, shortcodeId, ajaxObject);
 
-        if (ajaxObject.can_edit) { // Ajout de la vérification des permissions
-            $(this).on('click', function() {
-                var newState = initialState === 'on' ? 'off' : 'on';
-                toggleButtons(newState, shortcodeId, ajaxObject);
-                initialState = newState;
+        $(this).on('click', function() {
+            var newState = initialState === 'on' ? 'off' : 'on';
+            toggleButtons(newState, shortcodeId, ajaxObject);
+            initialState = newState;
 
-                $.ajax({
-                    url: ajaxObject.ajax_url,
-                    method: 'POST',
-                    data: {
-                        action: 'toggle_button_state',
-                        state: newState,
-                        shortcode_id: shortcodeId
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            console.log("Button state toggled to: " + newState);
-                        }
+            $.ajax({
+                url: ajaxObject.ajax_url,
+                method: 'POST',
+                data: {
+                    action: 'toggle_button_state',
+                    state: newState,
+                    shortcode_id: shortcodeId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log("Button state toggled to: " + newState);
                     }
-                });
+                }
             });
-        } else {
-            console.log("User does not have permission to change the button state.");
-        }
+        });
     });
 
     function toggleButtons(state, shortcodeId, ajaxObject) {
@@ -61,6 +57,3 @@ jQuery(document).ready(function($) {
         }
     }
 });
-
-
-

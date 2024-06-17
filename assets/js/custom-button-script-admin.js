@@ -25,5 +25,3 @@ jQuery(document).ready(function($) {
         $('#edit-shortcode-modal').hide();
     });
 });
-
-

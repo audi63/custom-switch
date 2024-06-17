@@ -94,5 +94,3 @@ class WP_Custom_Switch {
 }
 
 new WP_Custom_Switch();
-
-
