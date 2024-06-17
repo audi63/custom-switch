@@ -1,0 +1,30 @@
+.service-status-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.service-status-text-before {
+    margin-right: 10px;
+}
+
+.service-status-text-after {
+    margin-left: 10px;
+}
+
+.toggle-button-container.hidden {
+    display: none;
+}
+
+.toggle-button-container img {
+    height: 1em; /* Ajuste la hauteur pour s'adapter à la hauteur de la ligne de texte */
+    width: auto;
+    display: block;
+    max-width: 100%;
+}
+
+.service-status-container .toggle-button-container + .service-status-text,
+.service-status-container .service-status-text + .toggle-button-container {
+    margin-left: 10px;
+    margin-right: 10px;
+}
