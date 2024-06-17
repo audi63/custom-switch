@@ -35,7 +35,7 @@ Example [custom_switch id="5" label-on="ON" label-off="OFF" button-on="wp-conten
 
 3. That\'s all!
 
-== Screenshots ==
+## Screenshots
 1. Default custom label and images   ![Screenshot 1](./screenshots/1.png)
 2. Shortcode form                    ![Screenshot 2](./screenshots/2.png)
 3. Shortcode listing                 ![Screenshot 3](./screenshots/3.png)
