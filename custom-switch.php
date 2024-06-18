@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WP Custom Switch
+Plugin Name: Custom Switch for WP
 Description: Un plugin pour créer des boutons switch paramétrables via un shortcode.
 Version: 1.0.1
 Author: johan63360
