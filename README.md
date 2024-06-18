@@ -1,14 +1,27 @@
-![Logo](assets/images/repository-open-graph-template-wp-custom-switch.png)
-# WP Custom Switch
+![Logo](assets/images/repository-open-graph-template-custom-switch.png)
 
-**Contributors:** johancoffigniez  
-**Tags:** wp custom switch, wp, custom, switch, button, price, options  
+# Custom Switch for WP
+
+**Contributors:** johan63360  
+**Tags:** custom, switch, button, price, options  
 **Donate link:** [Donate](https://www.paypal.me/johancoffigniez)  
 **Requires at least:** 4.6  
 **Tested up to:** 6.5.4  
-**Stable tag:** 0.0.0
+**Requires PHP:** 7.4
+**Stable tag:** 0.0.0  
+**License:** GPLv3 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
+**Version:** 1.0.1
 
-WP Custom Switch, Plugin WordPress pour créer des boutons switch personnalisables et administrables facilement. Testé sur la version 6.5.4 de WordPress.
+---
+
+## Quick Start  
+
+---
+
+## Introduction
+
+Custom Switch for WP est un Plugin WordPress pour créer des boutons switch personnalisables et administrables facilement.
 
 ---
 
@@ -32,7 +45,7 @@ Plugin WordPress pour créer des boutons switch personnalisables et administrabl
 ### No more questions ?
 
 Utilisez le bloc Gutenberg  
-   Peut-être un jour...
+Peut-être un jour...
 
 Ou utilisez l'ancien shortcode :
 
@@ -41,7 +54,7 @@ Ou utilisez l'ancien shortcode :
 3. Ajoutez des paramètres (label-on, label-off, button-on, button-off, label-position="after" ou label-position="before").
 
 Exemple :  
-`[custom_switch id="5" label-on="ON" label-off="OFF" button-on="wp-content/plugins/wp-custom-switch/assets/images/default/button_on.svg" button-off="wp-content/plugins/wp-custom-switch/assets/images/default/button_off.svg" label-position="after"]`
+`[custom_switch id="5" label-on="ON" label-off="OFF" button-on="wp-content/plugins/custom-switch/assets/images/default/button_on.svg" button-off="wp-content/plugins/custom-switch/assets/images/default/button_off.svg" label-position="after"]`
 
 C'est tout !
 
@@ -72,18 +85,21 @@ C'est tout !
 * Ajout de la sécurité pour les modifications uniquement par l'administrateur
 * Réorganisation du code
 
-### 1.0.1 - 17 juin 2024
-* Correction mineure - Ajout du nom de l'auteur
-
 ### 1.0.0 - 17 juin 2024
 * Version initiale
 
 ---
 
+## Upgrade Notice
+
+### 1.0.1
+Mise à jour recommandée pour améliorer la sécurité et réorganiser le code.
+
+
 ## Arborescence
 
  ```plaintext
-    wp-custom-switch/
+    custom-switch/
     ├── actifs/
     │   ├── css/
     │   │   └── custom-button-style.css
@@ -94,8 +110,8 @@ C'est tout !
     │           ├── bouton-on.svg
     │           └── bouton-off.svg
     ├── inclut/
-    │   ├── class-wp-custom-switch.php
+    │   ├── class-custom-switch.php
     │   └── admin/
-    │       └── classe-wp-custom-switch-admin.php
-    └── wp-custom-switch.php
+    │       └── classe-custom-switch-admin.php
+    └── custom-switch.php
     ```
