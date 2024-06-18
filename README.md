@@ -1,4 +1,4 @@
-![Logo](assets/images/repository-open-graph-template-custom-switch.png)
+![Logo](assets/images/repository-open-graph-template-wp-custom-switch.png)
 
 # Custom Switch for WP
 
