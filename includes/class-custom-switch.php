@@ -9,10 +9,10 @@ class Custom_Switch {
      * rendering the shortcode, and handling AJAX requests to toggle the button state.
      */
     public function __construct() {
-        add_action('enqueue_scripts', array($this, 'enqueue_assets'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
         add_shortcode('custom_switch', array($this, 'render_switch'));
-        add_action('ajax_toggle_button_state', array($this, 'toggle_button_state'));
-        add_action('ajax_nopriv_toggle_button_state', array($this, 'toggle_button_state'));
+        add_action('wp_ajax_toggle_button_state', array($this, 'toggle_button_state'));
+        add_action('wp_ajax_nopriv_toggle_button_state', array($this, 'toggle_button_state'));
     }
 
     /**
@@ -21,8 +21,8 @@ class Custom_Switch {
      * @return void
      */
     public function enqueue_assets() {
-        enqueue_style('custom-button-style', CUSTOM_SWITCH_PLUGIN_URL . 'assets/css/custom-button-style.css');
-        enqueue_script('custom-button-script', CUSTOM_SWITCH_PLUGIN_URL . 'assets/js/custom-button-script.js', array('jquery'), null, true);
+        wp_enqueue_style('custom-button-style', CUSTOM_SWITCH_PLUGIN_URL . 'assets/css/custom-button-style.css');
+        wp_enqueue_script('custom-button-script', CUSTOM_SWITCH_PLUGIN_URL . 'assets/js/custom-button-script.js', array('jquery'), null, true);
 
         $shortcodes = get_option('custom_switch_shortcodes', array());
         $localized_data = [];
@@ -30,6 +30,7 @@ class Custom_Switch {
             error_log('Creating ajax_object_' . $id);
             $localized_data['ajax_object_' . $id] = array(
                 'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('toggle_button_state_' . $id),
                 'initial_state' => $shortcode['state'],
                 'shortcode_id' => $id,
                 'label_on' => $shortcode['label_on'] ?: 'Service disponible',
@@ -41,7 +42,7 @@ class Custom_Switch {
         }
 
         // Localize the script with multiple objects
-        localize_script('custom-button-script', 'custom_switch_data', $localized_data);
+        wp_localize_script('custom-button-script', 'custom_switch_data', $localized_data);
     }
 
     /**
@@ -93,12 +94,12 @@ class Custom_Switch {
      * @return void
      */
     public function toggle_button_state() {
-        if (!current_user_can('manage_options')) {
-            send_json_error('You do not have sufficient permissions to perform this action.');
+        if (!isset($_POST['shortcode_id']) || !isset($_POST['state']) || !isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'toggle_button_state_' . sanitize_text_field($_POST['shortcode_id']))) {
+            wp_send_json_error('Invalid nonce');
         }
 
-        if (!isset($_POST['shortcode_id']) || !isset($_POST['state'])) {
-            send_json_error('Invalid data');
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('You do not have sufficient permissions to perform this action.');
         }
 
         $shortcode_id = sanitize_text_field($_POST['shortcode_id']);
@@ -108,9 +109,9 @@ class Custom_Switch {
         if (isset($shortcodes[$shortcode_id])) {
             $shortcodes[$shortcode_id]['state'] = $new_state;
             update_option('custom_switch_shortcodes', $shortcodes);
-            send_json_success($new_state);
+            wp_send_json_success($new_state);
         } else {
-            send_json_error('Shortcode not found');
+            wp_send_json_error('Shortcode not found');
         }
     }
 }

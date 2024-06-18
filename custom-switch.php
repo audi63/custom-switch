@@ -20,8 +20,7 @@ require_once CUSTOM_SWITCH_PLUGIN_DIR . 'includes/admin/class-custom-switch-admi
 /**
  * Initialiser les classes
  *
- * @return [type]
- * 
+ * @return void
  */
 function custom_switch_init() {
     new Custom_Switch();
@@ -36,24 +35,20 @@ function custom_switch_admin_init() {
 }
 add_action('admin_init', 'custom_switch_admin_init');
 
-
 /**
  * Activer le plugin
  *
- * @return [type]
- * 
+ * @return void
  */
 function custom_switch_activate() {
     // Code à exécuter lors de l'activation
 }
 register_activation_hook(__FILE__, 'custom_switch_activate');
 
- 
 /**
  * Désactiver le plugin
  *
- * @return [type]
- * 
+ * @return void
  */
 function custom_switch_deactivate() {
     // Code à exécuter lors de la désactivation

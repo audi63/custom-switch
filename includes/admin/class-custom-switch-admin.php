@@ -41,8 +41,8 @@ class Custom_Switch_Admin {
         if ($hook !== 'toplevel_page_custom-switch') {
             return;
         }
-        enqueue_script('custom-switch-admin-script', CUSTOM_SWITCH_PLUGIN_URL . 'assets/js/custom-button-script-admin.js', array('jquery'), null, true);
-        enqueue_style('custom-switch-admin-style', CUSTOM_SWITCH_PLUGIN_URL . 'assets/css/custom-button-style.css');
+        wp_enqueue_script('custom-switch-admin-script', CUSTOM_SWITCH_PLUGIN_URL . 'assets/js/custom-button-script-admin.js', array('jquery'), null, true);
+        wp_enqueue_style('custom-switch-admin-style', CUSTOM_SWITCH_PLUGIN_URL . 'assets/css/custom-button-style.css');
     }
 
     /**
@@ -61,7 +61,7 @@ class Custom_Switch_Admin {
             <h1><?php echo esc_html__('Custom Switch Shortcodes', 'custom-switch'); ?></h1>
             <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
                 <input type="hidden" name="action" value="save_custom_switch">
-                <?php nonce_field('save_custom_switch_nonce'); ?>
+                <?php wp_nonce_field('save_custom_switch_nonce'); ?>
                 <table class="form-table">
                     <tr valign="top">
                         <th scope="row"><?php echo esc_html__('Shortcode ID', 'custom-switch'); ?></th>
@@ -126,7 +126,7 @@ class Custom_Switch_Admin {
                                     <form method="post" action="<?php echo admin_url('admin-post.php'); ?>" style="display:inline;">
                                         <input type="hidden" name="action" value="delete_custom_switch">
                                         <input type="hidden" name="shortcode_id" value="<?php echo esc_attr($id); ?>">
-                                        <?php nonce_field('delete_custom_switch_nonce'); ?>
+                                        <?php wp_nonce_field('delete_custom_switch_nonce'); ?>
                                         <input type="submit" class="button-primary" value="<?php echo esc_html__('Delete', 'custom-switch'); ?>" onclick="return confirm('<?php echo esc_html__('Are you sure you want to delete this shortcode?', 'custom-switch'); ?>');">
                                     </form>
                                     <button class="button edit-shortcode" data-shortcode-id="<?php echo esc_attr($id); ?>"><?php echo esc_html__('Edit', 'custom-switch'); ?></button>
@@ -144,7 +144,7 @@ class Custom_Switch_Admin {
                 <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
                     <input type="hidden" name="action" value="save_custom_switch">
                     <input type="hidden" name="shortcode_id" id="edit-shortcode-id">
-                    <?php nonce_field('save_custom_switch_nonce'); ?>
+                    <?php wp_nonce_field('save_custom_switch_nonce'); ?>
                     <table class="form-table">
                         <tr valign="top">
                             <th scope="row"><?php echo esc_html__('Label ON', 'custom-switch'); ?></th>
@@ -188,7 +188,7 @@ class Custom_Switch_Admin {
      * @return void
      */
     public function save_custom_switch() {
-        if (!isset($_POST['_wpnonce']) || !verify_nonce($_POST['_wpnonce'], 'save_custom_switch_nonce')) {
+        if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'save_custom_switch_nonce')) {
             die(__('Nonce verification failed', 'custom-switch'));
         }
 
@@ -216,7 +216,7 @@ class Custom_Switch_Admin {
 
         update_option('custom_switch_shortcodes', $shortcodes);
 
-        redirect(admin_url('admin.php?page=custom-switch'));
+        wp_redirect(admin_url('admin.php?page=custom-switch'));
         exit;
     }
 
@@ -226,7 +226,7 @@ class Custom_Switch_Admin {
      * @return void
      */
     public function delete_custom_switch() {
-        if (!isset($_POST['_wpnonce']) || !verify_nonce($_POST['_wpnonce'], 'delete_custom_switch_nonce')) {
+        if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'delete_custom_switch_nonce')) {
             die(__('Nonce verification failed', 'custom-switch'));
         }
 
@@ -242,7 +242,7 @@ class Custom_Switch_Admin {
             update_option('custom_switch_shortcodes', $shortcodes);
         }
 
-        redirect(admin_url('admin.php?page=custom-switch'));
+        wp_redirect(admin_url('admin.php?page=custom-switch'));
         exit;
     }
 }

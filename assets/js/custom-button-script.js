@@ -27,7 +27,8 @@ jQuery(document).ready(function($) {
                 data: {
                     action: 'toggle_button_state',
                     state: newState,
-                    shortcode_id: shortcodeId
+                    shortcode_id: shortcodeId,
+                    _wpnonce: ajaxObject.nonce
                 },
                 success: function(response) {
                     if (response.success) {
