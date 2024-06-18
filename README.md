@@ -4,19 +4,17 @@
 
 **Contributors:** johan63360  
 **Tags:** custom, switch, button, price, options  
-**Donate link:** [Donate](https://www.paypal.me/johancoffigniez)  
+**Donate link:** [Donate](https://www.jconcept.fr/donate)  
 **Requires at least:** 4.6  
 **Tested up to:** 6.5.4  
-**Requires PHP:** 7.4
-**Stable tag:** 1.0.1
-**Version:** 1.0.1
-**Author:** johan63360
-**Author URI:** https://www.jconcept.fr
+**Requires PHP:** 7.4  
+**Stable tag:** 1.0.1  
+**Version:** 1.0.1  
+**Author:** johan63360  
+**Author URI:** [https://www.jconcept.fr](https://www.jconcept.fr)  
 **Text Domain:** custom-switch  
 **License:** GPLv3 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
-
----
+**License URI:** [http://www.gnu.org/licenses/gpl-3.0.html](http://www.gnu.org/licenses/gpl-3.0.html)
 
 ## Quick Start  
 
